@@ -12,7 +12,7 @@ the client does not run in any other port except the 3000 or the 3001, and if it
 number to the accepted ports in the main file of the backend.
 
 ## Server
-## Setup Guide
+### Setup Guide
 first time running: `docker-compose up --build --no-recreate -d`
 then: `docker-compose up -d`
 
