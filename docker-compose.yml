@@ -1,0 +1,102 @@
+
+version: "3.7"
+services:
+  postgres:
+    image: postgres:15-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: dev-user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: dev_db
+    ports:
+      - 5432:5432
+    volumes:
+      - db-data:/var/lib/postgresql/data:cached
+
+  # test-postgres:
+  #   image: postgres:15-alpine
+  #   restart: always
+  #   environment:
+  #     POSTGRES_USER: test-user
+  #     POSTGRES_PASSWORD: password
+  #     POSTGRES_DB: test_db
+  #   ports:
+  #     - 5434:5432
+  #   volumes:
+  #     - test-db-data:/var/lib/postgresql/data:cached
+
+  backend:
+    build:
+      context: ./services/backend
+      dockerfile: Dockerfile
+    command: python app/main.py
+    tty: true
+    volumes:
+      - ./services/backend:/backend/:cached
+      - ./.docker/.ipython:/root/.ipython:cached
+    environment:
+      PYTHONPATH: .
+      DATABASE_URL: "postgresql+asyncpg://dev-user:password@postgres:5432/dev_db"
+      ECHO_SQL: "${ECHO_SQL}"
+      TEST: "${TEST}"
+      PROJECT_NAME: "${PROJECT_NAME}"
+      OAUTH_TOKEN_SECRET: "${OAUTH_TOKEN_SECRET}"
+      MINI_URL: "${MINI_URL}"
+      OPENAI_API_KEY: "${OPENAI_API_KEY}"
+      MINI_API_KEY: "${MINI_API_KEY}"
+      PINECONE_API_KEY: "${PINECONE_API_KEY}"
+      PINECONE_INDEX: "${PINECONE_INDEX}"
+      PINECONE_HOST: "${PINECONE_HOST}"
+      
+    depends_on:
+      - postgres
+    ports:
+      - 8000:8000
+# docker pull miniflux/miniflux
+  miniflux:
+    image: miniflux/miniflux:latest
+    healthcheck:
+      test: ["CMD", "/usr/bin/miniflux", "-healthcheck", "auto"]
+    ports:
+      - "80:8080"
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: "postgres://miniflux:secret@db/miniflux?sslmode=disable"
+      RUN_MIGRATIONS: 1
+      CREATE_ADMIN: 1
+      ADMIN_USERNAME: admin
+      ADMIN_PASSWORD: test123
+  db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: miniflux
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: miniflux
+    volumes:
+      - miniflux-db:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "miniflux"]
+      interval: 10s
+      start_period: 30s
+
+  # client:
+  #   build:
+  #     context: client
+  #     dockerfile: Dockerfile
+  #   stdin_open: true
+  #   volumes:
+  #     - .:/usr/src/app
+  #     - /usr/src/app/node_modules
+  #     - "./client:/app:cached"
+  #     - "./client/node_modules:/app/node_modules:cached"
+  #   environment:
+  #     - NODE_ENV=development
+  #   ports:
+  #     - 3000:3000
+
+volumes:
+  db-data:
+  # test-db-data:
+  miniflux-db:
+
