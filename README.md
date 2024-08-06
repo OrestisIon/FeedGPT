@@ -1,11 +1,9 @@
 # FeedGpt
 ![rec](https://github.com/user-attachments/assets/476372f7-6463-4387-8668-69acf1da5564)
 ![Screenshot 2024-05-10 at 00 18 41](https://github.com/user-attachments/assets/bdaa637d-6d46-4ba4-8f78-d54baf58d4a7)
+<img width="1097" alt="sub" src="https://github.com/user-attachments/assets/91cd3b24-2536-49b2-ab17-8d9d0f82315c">
+<img width="262" alt="nav" src="https://github.com/user-attachments/assets/dd2c4c4b-d3a4-4f8c-b234-099d6fa454ba">
 
-<img width="1097" alt="sub" src="https://github.com/user-attach
-
-<img width="262" alt="nav" src="https://github.com/user-attachments/assets/5d57b1ba-e61f-40a1-9ec5-02f32482bec4">
-ments/assets/85ad2f08-ba59-4ffa-b7ae-1827c2e6f953">
 
 ## Client
 `npm intall`
