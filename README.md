@@ -23,13 +23,13 @@ In the near future, plans for full deployment and refining the recommendation sy
 
 ## 2. Showcase
 
-<img src="https://github.com/user-attachments/assets/476372f7-6463-4387-8668-69acf1da5564" width="300" alt="rec" />
+<img src="https://github.com/user-attachments/assets/476372f7-6463-4387-8668-69acf1da5564" width="400" alt="rec" />
 
-<img src="https://github.com/user-attachments/assets/bdaa637d-6d46-4ba4-8f78-d54baf58d4a7" width="300" alt="Screenshot 2024-05-10 at 00 18 41" />
+<img src="https://github.com/user-attachments/assets/bdaa637d-6d46-4ba4-8f78-d54baf58d4a7" width="400" alt="Screenshot 2024-05-10 at 00 18 41" />
 
-<img src="https://github.com/user-attachments/assets/91cd3b24-2536-49b2-ab17-8d9d0f82315c" width="200" alt="sub" />
+<img src="https://github.com/user-attachments/assets/91cd3b24-2536-49b2-ab17-8d9d0f82315c" width="300" alt="sub" />
 
-<img src="https://github.com/user-attachments/assets/dd2c4c4b-d3a4-4f8c-b234-099d6fa454ba" width="100" alt="nav" />
+<img src="https://github.com/user-attachments/assets/dd2c4c4b-d3a4-4f8c-b234-099d6fa454ba" width="150" alt="nav" />
 
 ## 3. Installation
 
