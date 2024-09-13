@@ -2,7 +2,7 @@
 
 > **🚀 Redefining content recommendations by putting users in control, not algorithms.**
 
-## 2. Project Description
+## 1. Description
 
 **FeedGPT** is a next-generation feed aggregation platform designed to disrupt the status quo in content recommendation systems. By combining cutting-edge Machine Learning with a modern user-driven approach, FeedGPT redefines how users interact with personalized content. This project is the culmination of advanced technical expertise, blending innovative algorithms with open-source tools to create a truly intelligent, high-performance solution.
 
@@ -21,36 +21,39 @@ In the near future, plans for full deployment and refining the recommendation sy
 
 **FeedGPT** is not just another RSS reader—it's a game-changer that combines technical prowess with user empowerment, setting a new benchmark for intelligent content aggregation platforms.
 
+## 2. Showcase
+
 ![rec](https://github.com/user-attachments/assets/476372f7-6463-4387-8668-69acf1da5564)
 ![Screenshot 2024-05-10 at 00 18 41](https://github.com/user-attachments/assets/bdaa637d-6d46-4ba4-8f78-d54baf58d4a7)
 <img width="1097" alt="sub" src="https://github.com/user-attachments/assets/91cd3b24-2536-49b2-ab17-8d9d0f82315c">
 <img width="262" alt="nav" src="https://github.com/user-attachments/assets/dd2c4c4b-d3a4-4f8c-b234-099d6fa454ba">
 
+## 3. Installation
 
-## Client
+### Client
 `npm intall`
 `npm run dev`
 if there is a problem with that then, delete the nod_modules and the package-lock.json file and do `npm install` again.
 
-### Warning
+#### Warning
 If you want it along the Flowise chatbot, run that first and then this. Flowise uses the same port as the client(3000), 
 so it will not run if it is occupied. However the client will run on port 3001 if the 3000 is occupied. Similarly make sure that 
 the client does not run in any other port except the 3000 or the 3001, and if it is the case the either change that, or add the new port 
 number to the accepted ports in the main file of the backend.
 
-## Server
-### Setup Guide
+### Server
+#### Setup Guide
 first time running: `docker-compose up --build --no-recreate -d`
 then: `docker-compose up -d`
 
-### DB Migrations
+#### DB Migrations
 `docker compose exec backend alembic revision --autogenerate -m "added gender"`
 `docker compose exec backend alembic upgrade head`
-#### Check the Database from the terminal
+##### Check the Database from the terminal
 `docker exec -it 4ca8d7da2203 bash`
 `psql -U dev-user -d dev_db`
 
-## Flowise
+### Flowise
 To setup flowise you need to download it from the github repository and following the instructions below. After the 
 initial setup you need to initiate a new environment and import the file we provide in the Flowise directory.
 
@@ -63,10 +66,10 @@ initial setup you need to initiate a new environment and import the file we prov
 4. Open http://localhost:3000
 
 5. You can bring the containers down by docker-compose stop
-## Endpoints
-### Miniflux
+### Endpoints
+#### Miniflux
 http://localhost:80/
-### Backend 
+#### Backend 
 http://localhost:8000/
-### Client
+#### Client
 http://localhost:3000/
